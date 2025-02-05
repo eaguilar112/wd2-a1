@@ -6,6 +6,26 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <!--NOTE: Leave div id's (tab1, tab2, tab3)-->
+    <div style="margin-bottom: 10px;">
+        <button onclick="openTab('tab1')" style="padding: 10px; cursor: pointer; margin-right: 5px;">Weight</button>
+        <button onclick="openTab('tab2')" style="padding: 10px; cursor: pointer; margin-right: 5px;">Distance</button>
+        <button onclick="openTab('tab3')" style="padding: 10px; cursor: pointer;">Temperature</button>
+    </div>
+
+    <div id="tab1" style="display: block; padding: 10px; border: 1px solid black;">
+        <p>Weight conversion stuff</p>
+    </div>
+
+    <div id="tab2" style="display: none; padding: 10px; border: 1px solid black;">
+        <p>Distance conversion stuff</p>
+    </div>
+
+    <div id="tab3" style="display: none; padding: 10px; border: 1px solid black;">
+        <p>Temperature conversion stuff, so cold outside, brr</p>
+    </div>
+
+    <script src="convert.js"></script>
+
 </body>
 </html>

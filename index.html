@@ -22,7 +22,14 @@
     </div>
 
     <div id="tab3" style="display: none; padding: 10px; border: 1px solid black;">
-        <p>Temperature conversion stuff, so cold outside, brr</p>
+        <h2 class="text-xl font-bold">Temperature Converter</h2>
+            <select id="temperature-unit" class="border p-2 rounded w-full mt-2">
+                <option value="c_f">Celsius to Fahrenheit</option>
+                <option value="f_c">Fahrenheit to Celsius</option>
+            </select>
+            <input type="text" id="temperature-input" class="border p-2 rounded w-full mt-2" placeholder="Enter value">
+            <button class="bg-blue-500 text-white p-2 rounded mt-2 w-full" onclick="convertTemperature()">Convert</button>
+            <p id="temperature-output" class="mt-2 font-bold"></p>
     </div>
 
     <script src="functions.js"></script>

@@ -32,16 +32,32 @@ const getConversion = (from) => {
     };
 }
 
-function convertTemperature() {
-    let input = parseFloat(document.getElementById('temperature-input').value);
-    if (isNaN(input)) return alert("Please enter a valid number");
+document.getElementById("calc").addEventListener("click", (event) => {
+    event.preventDefault();
 
-    let conversionType = document.getElementById('temperature-unit').value;
-    
-    let convertFunc = getConversion(conversionType);
-    let result = convertFunc([input])[0];
+    const cToFValue = (document.getElementById("cToF").value);
+    const fToCValue = (document.getElementById("fToC").value);
 
-    let [from, to] = conversionType.split('To');
-    document.getElementById('temperature-output').innerText = 
-        `${input}° ${from.toUpperCase()} = ${result.toFixed(2)}° ${to.toUpperCase()}`;
-}
+    let result3 = [];
+
+    const isCToF = document.getElementById("default-radio-1").checked;
+
+    if (isCToF) {
+        const cValues = cToFValue.split(',').map(val => parseFloat(val.trim()))
+        if (cValues.every(val => !isNaN(val))) {
+            const cToFConverter = getConversion("cToF");
+            result3 = cToFConverter(cValues);
+        } else {
+            result3 = ["Invalid input for KM"];
+        }
+    } else {
+        const fValues = fToCValue.split(',').map(val => parseFloat(val.trim()));
+        if (fValues.every(val => !isNaN(val))) {
+            const fToCConverter = getConversion("fToC");
+            result3 = fToCConverter(fValues);
+        }
+    }
+
+    document.getElementById("result3").value = result3.join(', ');
+
+});
